@@ -1,0 +1,119 @@
+
+header {
+    position: relative;
+}
+
+header a#log_out_link {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-family: 'Cairo' , sans-serif;
+    font-weight: bold;
+    color: #00305B;
+    text-decoration: underline;
+}
+
+main {
+    min-height: 500px;
+}
+
+#main_content.sidebar_activated {
+    min-height: 500px;
+}
+
+#sidebar  ul#main_list > li {
+    position: relative;
+    font-weight: bold;
+}
+
+#sidebar  ul#main_list > li a:active ,
+#sidebar  ul#main_list > li a:focus {
+    text-decoration: none;
+}
+
+#sidebar  ul#main_list > li.has_sublist:hover a {
+    background-color: #cecccc;
+    color: black;
+}
+
+#sidebar ul li > span.fa {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    font-weight: bold;
+    color: #00305B;
+}
+
+#sidebar ul li ul {
+    background-color: #cecccc;
+}
+
+#sidebar ul li ul li a{
+    border: 0 !important;
+    text-decoration: none;
+}
+
+#sidebar ul#main_list li ul li:hover  a{
+    background-color: #666 !important;
+    color: white !important;
+}
+
+#page_content a section {
+    max-width: 200px;
+    max-height: 200px;
+/*    min-width: 200px;*/
+    min-height: 200px;
+    background-color: #efeded;
+    border-radius: 6px;
+    position: relative;
+    margin: 0 auto;
+    
+    font-family: 'Cairo' , sans-serif;
+}
+
+#page_content a section h4 {
+    margin: 0;
+    min-height: 40px;
+    line-height: 40px;
+    background-color: #00305B;
+    color: white;
+    border-radius: 6px 6px 0 0;
+}
+
+#page_content a section h4.pending {
+    background-color: #efb800;
+    color: black;
+}
+
+
+#page_content a section h4.approved {
+    background-color: green;
+}
+
+#page_content a section h4.rejected {
+    background-color: #c10606;
+}
+
+
+#page_content a section .group {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    
+    transform: translateY(-50%);
+}
+
+#page_content a section span {
+    font-size: 2.5em;
+    color: #555;
+    
+    transition: all .5s;
+}
+
+#page_content a section span.fa {
+    font-size: 1.25em;
+}
+
+#page_content a section:hover span {
+    color: #222;
+}
