@@ -100,6 +100,8 @@ span.glyphicon {
     width: 100%;
     list-style: none;
     padding: 0;
+    max-height: 150px;
+    overflow: auto;
 }
 
 #categories_list li ul li {
@@ -318,6 +320,65 @@ span.glyphicon {
 
 #create_ad_modal .modal-body .ad_post_container .tag_group input {
     width: 600px;
+}
+
+
+#ad_post_categories_list {
+    margin: 0 auto;
+/*    max-width: 350px;*/
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+#ad_post_categories_list > li > a {
+    display: block;
+    padding-left: 1em;
+    height: 2.5em;
+    line-height: 2.5em;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #d0cdcd;
+    text-decoration: none;
+    color: black;
+}
+
+#ad_post_categories_list span.glyphicon {
+    position: absolute;
+    right: 1em;
+    top: 1.2em;
+    font-size: .8em;
+    color: #4d4b4b;
+}
+
+#ad_post_categories_list li ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    max-height: 150px;
+    overflow: auto;
+}
+
+#ad_post_categories_list li ul li {
+    height: 2em;
+    line-height: 2em;
+    padding-left: 1em;
+    cursor: pointer;
+}
+
+#ad_post_categories_list li ul li:hover {
+    background-color: #d6d6d6;
+}
+
+#ad_post_categories_field{
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
 }
 
 
@@ -592,6 +653,10 @@ span.glyphicon {
 
 #account_section form .form-group input {
     min-height: 45px !important;
+}
+
+#sign_up_form p.error {
+    display: none;
 }
 
 .group a ,

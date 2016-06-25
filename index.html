@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="css/index.css">
 
         
-        <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+<!--        <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">-->
 
 
         <!--to support legacy browsers-->
@@ -73,6 +73,24 @@
                 });
                 
                 $('[data-toggle="popover"]').popover();
+                
+                $('#ad_post_categories_list li ul li').click(function(){
+                    var list_value = $(this).text();
+                    $('#ad_post_categories_list li a.dropdown-toggle').html(list_value + "<span class='glyphicon glyphicon-arrow-down'></span>");
+                    $('#ad_post_categories_field').val(list_value);                    
+                });
+                
+                
+                $('#sign_up_form button').click(function(evt){
+                    evt.preventDefault();
+                    
+                    if($('#password').val() === $('#confirm_password').val()) {
+                        $('#sign_up_form').submit();
+                    }
+                    else {
+                        $('#sign_up_form p.error').slideDown();
+                    }
+                });
                 
             });
         </script>
@@ -154,6 +172,9 @@
                                     <li>Bars</li>
                                     <li>Restaurants</li>
                                     <li>Clubs</li>
+                                    <li>Hotels</li>
+                                    <li>Hotels</li>
+                                    <li>Hotels</li>
                                     <li>Hotels</li>
                                 </ul>
                             </li>
@@ -321,6 +342,32 @@
                                                 <input type="text" data-role="tagsinput" class="form-control" placeholder="Enter Tags">
                                                 <button data-toggle="popover" data-placement="bottom" title="You can enter tags like your company location , type of company , city , province , related company etc.." class="btn btn-default glyphicon glyphicon-info-sign"></button>
                                             </div>
+                                        </div>
+                                        
+                                        <!---->
+                                        
+                                        <div class="form-group">
+                                           
+                                           <label for="">Choose Category</label>
+                                           
+                                            <ul id="ad_post_categories_list">
+                                                <li class="dropdown"><a href="#" id="ad_post_form_categories_list" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-arrow-down"></span> </a>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li>Bars</li>
+                                                        <li>Restaurants</li>
+                                                        <li>Clubs</li>
+                                                        <li>Hotels</li>
+                                                        <li>Hotels</li>
+                                                        <li>Hotels</li>
+                                                        <li>Hotels</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+                                            <!--hidden field-->
+                                            <input type="text" id="ad_post_categories_field">
+                                            <!--hidden field-->
                                         </div>
                                         
                                         <div class="form-group">
@@ -559,7 +606,7 @@
                             <h3>REGISTER NEW ACCOUNT</h3>  
                             
                                                       
-                            <form action="" class="form-horizontal wow slideInLeft">
+                            <form action="" id="sign_up_form" class="form-horizontal wow slideInLeft">
                                 <div class="form-group">
                                     <label for="">Name</label>
                                     <input type="text" class="form-control" placeholder="Enter Your Name Here">
@@ -599,6 +646,10 @@
                                 <div class="form-group">
                                     <label for="">Profile Picture</label>
                                     <input type="file" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <p class="error">Please Check Your Information Again And Register.</p>
                                 </div>
                                 
                                 <div class="form-group">
