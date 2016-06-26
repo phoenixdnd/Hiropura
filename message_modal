@@ -1,0 +1,41 @@
+modal creation code
+=================================
+
+
+       <a href="#" id="trigger">Trigger Modal</a>
+        
+       <div class="modal fade" id="modal_id">
+           <div class="modal-dialog">
+               <div class="modal-content">
+                   <div class="modal-body">
+                       <h5>heres my message shown in dialog box</h5>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+
+=================================
+
+
+
+script to trigger and hide it after some seconds 
+=================================================
+
+<script>
+            $(document).ready(function(){
+                $('#trigger').click(function(){
+                    $('#modal_id').modal('show');
+                    hide_modal();
+                });
+                
+                function hide_modal() {
+                    setTimeout(function(){
+                        $('#modal_id').modal('hide');
+                    } , 3000);
+                }
+                
+            });
+        </script>
+
+
