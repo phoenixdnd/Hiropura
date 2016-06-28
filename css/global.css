@@ -1,3 +1,7 @@
+p.error {
+    color: #be0303;
+}
+
 header {
     position: relative;
     overflow: hidden;
