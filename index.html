@@ -134,13 +134,13 @@
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="#main_content">HOME</a></li>
-                <li><a href="#about_us">ABOUT</a></li>
-                <li><a href="#how_to_use">HOW TO USE</a></li>
-                <li><a href="#rules_of_service">RULES</a></li>
-                <li><a href="#find_place">FIND PLACE</a></li>
+                <li><a href="#about_us_target">ABOUT</a></li>
+                <li><a href="#find_place_target">FIND PLACE</a></li>
+                <li><a href="#how_to_use_target">HOW TO USE</a></li>
+                <li><a href="#rules_of_service_target">RULES</a></li>
                 <li><a href="#create_ad_modal" data-toggle="modal">CREATE AD</a></li>
-                <li><a href="#contact_us">CONTACT</a></li>
-                <li class="login_link"><a href="#login_section">Log In</a></li>
+                <li><a href="#contact_us_target">CONTACT</a></li>
+                <li class="login_link_target"><a href="#login_section">Log In</a></li>
               </ul>
             </div>
 
@@ -190,7 +190,11 @@
                         <input type="text" id="categories_field">
                         <!--hidden field-->
                         
+                        
                     </form>
+                    
+                    <div id="about_us_target"></div>
+                    
                 </div>
             </section>
             
@@ -228,6 +232,8 @@
                        </div>
                     </div>
                        
+                       <div id="find_place_target"></div>
+                       
                     <div class="row">   
                        <div class="col-xs-12 col-sm-8">
                            <p>Check us out at <a href="http://www.globalaccessjapan.com">www.globalaccessjapan.com</a>
@@ -258,11 +264,13 @@
                     
                     <form action="" class="form-horizontal">
                         <div class="form-group">
-                            <input type="search" class="form-control" placeholder="Search Here">
+                            <input type="search" class="form-control" placeholder="Search By Name Or Tags">
                             <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
                         </div>
                             <p class="text-danger">No Results Found.</p>
                     </form>
+                    
+                    <div id="how_to_use_target"></div>
                     
                 </div>
             </section>
@@ -427,8 +435,11 @@
                                 <li><a href="#delete_ad_modal" data-toggle="modal">Delete Ad</a></li>
                             </ul>
                         </div>
+                        
+                        
                     </div>
                     
+                        <div id="rules_of_service_target"></div>
                     
                     <div class="modal fade" id="post_ad_modal">
                         <div class="modal-dialog">
@@ -549,9 +560,12 @@
                             </div>
                         </div>
                         
+                        <div id="contact_us_target"></div>
                 
                         <button data-target="#my_carousel" class="btn btn-default" data-slide="next"> Got It</button>
                     </article>
+                    
+                    
                 </div>
                 
             </section>
@@ -570,8 +584,10 @@
                     <div class="blur"></div>
                     
                     <h3>Contact Us</h3>
+                       
                     
                     <form action="" class="form-horizontal">
+                       
 
                         <div class="form-group">
                             <label for="">Name</label>
@@ -589,12 +605,14 @@
                         </div>
                         
                         
+                        
                         <div class="form-group">
                             <button type="submit" class="btn btn-default">Send</button>
                         </div>
                         
                     </form>
                 </div>
+                        <div id="login_link_target"></div>
             </section>
             
             <!--contact section ends here
