@@ -13,137 +13,8 @@
         <link rel="stylesheet" href="../css/categories.css">
         <link rel="stylesheet" href="../css/admin_index.css">
         <link rel="stylesheet" href="../css/admin_pending_post.css">
+        <link rel="stylesheet" href="../css/admin_manage_accounts.css">
 
-       
-       <style type="text/css">
-           
-           #page_content .row {
-               text-align: center;
-           }
-           
-           #page_content table thead {
-               
-               background-image : -webkit-linear-gradient(top , #00274a 0, #00274a 10% , #00305B ); 
-               background-image : linear-gradient(top , #00274a 0, #00274a 10% , #00305B );
-                color: white;
-            }
-           
-           #edit_modal .modal-dialog .form-group:last-of-type button {
-                background-color: #00305B;
-                color: white;
-            }
-           
-           #manage_account_table #fourth_col {
-               width: 80px;
-           }
-           
-           #page_content .container-fluid {
-               position: relative;
-           }
-           
-           #page_content .container-fluid > a.btn {
-               position: absolute;
-               right: 20px;
-               top: 10px;
-               background-color: #00305B;
-               color: white;
-               border: 0;
-           }
-           
-           #page_content .container-fluid > a.btn:active {
-               box-shadow: inset 0 0 10px 1px #222;
-           }
-           
-           #page_content .row [class*="col-"] {
-                margin-top: 0;
-            }
-           
-           .modal-body {
-               padding: 0;
-               
-           }
-           
-           .modal-body .row {
-               padding: 0;
-               margin-top : 20px !important;
-           }
-           
-           .modal-body .row form {
-               padding: 0 20px;
-           }
-           
-           
-           .form-group {
-               padding: 0 10px;
-           }
-           
-           #privileges_list {
-                margin: 0 auto;
-                max-width: 350px;
-                list-style: none;
-                padding: 0;
-                position: relative;
-            }
-
-            #privileges_list > li > a {
-                display: block;
-                padding-left: 1em;
-                height: 2.5em;
-                line-height: 2.5em;
-                background-color: white;
-                border-radius: 5px;
-                border: 1px solid #d0cdcd;
-                text-decoration: none;
-                color: black;
-                text-align: left;
-            }
-
-            #privileges_list span.glyphicon {
-                position: absolute;
-                right: 1em;
-                top: 1.2em;
-                font-size: .8em;
-                color: #4d4b4b;
-            }
-
-            #privileges_list li ul {
-                width: 100%;
-                list-style: none;
-                padding: 0;
-                max-height: 150px;
-                overflow: auto;
-                
-            }
-
-            #privileges_list li ul li {
-                height: 2em;
-                line-height: 2em;
-                padding-left: 1em;
-                cursor: pointer;
-            }
-
-           #privileges_list li ul li a {
-            
-               
-           }
-           
-            #privileges_list li ul li:hover {
-                background-color: #d6d6d6;
-            }
-
-            #privileges_field{
-                width: 0;
-                height: 0;
-                margin: 0;
-                padding: 0;
-                border: 0;
-                overflow: hidden;
-                opacity: 0;
-                position: absolute;    
-            }
-           
-           
-        </style>
        
 
        <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
@@ -175,6 +46,34 @@
                     
                     
                 });
+                
+                
+                $('#edit_privileges_list li ul li').click(function(){
+                    var list_value = $(this).text();
+                    $('#edit_privileges_list li a.dropdown-toggle').html(list_value + "<span class='glyphicon glyphicon-arrow-down'></span>");
+                    $('#edit_privileges_field').val(list_value);
+                    
+                    
+                });
+                
+                $('#add_admin_modal button[type="submit"]').click(function(evt){
+                    evt.preventDefault();
+                    
+                    if($('#password').val()=="" || $('#confirm_password').val() == "") {
+                        $('#add_admin_modal p.error').text('Password Must Not Be Empty');
+                        $('#add_admin_modal p.error').slideDown();
+                    }
+                    
+                    else if($('#password').val() === $('#confirm_password').val()) {
+                        $('#add_admin_modal form').submit();
+                    }
+                    else {
+                        $('#add_admin_modal p.error').text('Your Password Doesn\'t Match. ');
+                        $('#add_admin_modal p.error').slideDown();
+                    }
+                });
+                
+                
                 
             });
         </script>
@@ -350,7 +249,7 @@
                                                 <td>email@email.com</td>
                                                 <td>account password</td>
                                                 <td>
-                                                    <a href="" class="btn btn-default" data-toggle="modal"><span class="fa fa-edit"></span></a>
+                                                    <a href="#edit_admin_modal" class="btn btn-default" data-toggle="modal"><span class="fa fa-edit"></span></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -439,17 +338,17 @@
                                             <div class="col-xs-12 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="">Password</label>
-                                                    <input type="password" class="form-control">
+                                                    <input type="password" id="password" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
                                                 <div class="form-group">
                                                     <label for="">Confirm Password</label>
-                                                    <input type="password" class="form-control">
+                                                    <input type="password" id="confirm_password" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
-                                                <div class="form-group">
+                                                <div class="form-group privilege_group">
                                                     <label for="">Privilege</label>
                                                     
                                                     <ul id="privileges_list"  class="wow zoomIn">
@@ -470,8 +369,17 @@
                                                     
                                                 </div>
                                             </div>
-                                            <div class="col-xs-12 col-sm-6">
+                                            
+                                            <div class="col-xs-12 col-sm-6"></div>
+                                            
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <p class="error"> Your Password Doesn't Match.</p>
+                                                </div>
                                                 
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-default">Create Admin</button>
+                                                </div>
                                             </div>
                                             
                                         </form>
@@ -482,6 +390,143 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="modal fade" id="edit_admin_modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Update Record</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                        <form action="" class="form-horizontal">
+                                            
+                                            <fieldset>
+                                            
+                                               <legend>User Details</legend>
+                                               
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">User Name</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Email</label>
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                            
+                                            
+                                            </fieldset>
+                                            
+                                            
+                                            <fieldset>
+                                               
+                                               <legend>Password Details</legend>
+                                               
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Old Password</label>
+                                                        <input type="password" id="password" class="form-control">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">New Password</label>
+                                                        <input type="password" id="new_password" class="form-control">
+                                                    </div>
+                                                </div>
+                                                   
+                                                   
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Confirm New Password</label>
+                                                        <input type="password" id="new_confirm_password" class="form-control">
+                                                    </div>
+                                                </div>
+                                            
+                                            </fieldset>
+                                            
+                                            <fieldset>
+                                               
+                                                <legend>Change Privilege</legend>
+                                            
+                                            
+                                            <div class="col-xs-12 col-sm-6">
+                                                <div class="form-group privilege_group">
+                                                    <label for="edit_privilege_label">Privilege</label>
+                                                    
+                                                    <ul id="edit_privileges_list"  class="wow zoomIn">
+                                                        <li class="dropdown"><a href="#" id="edit_privileges_list_item" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-arrow-down"></span> </a>
+
+                                                            <ul class="dropdown-menu">
+                                                                <li>Super</li>
+                                                                <li>Normal</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+
+                                                    <!--hidden field-->
+                                                    <input type="text" id="edit_privileges_field">
+                                                    <!--hidden field-->
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                            </fieldset>
+                                            
+                                            <div class="col-xs-12 col-sm-6"></div>
+                                            
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <p class="error"> Your Password Doesn't Match.</p>
+                                                </div>
+                                                
+                                                <div class="form-group button_wala_group">
+                                                    <button type="submit" class="btn btn-default">Update</button>
+                                                </div>
+                                            </div>
+                                            
+                                        </form>
+                                        
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         

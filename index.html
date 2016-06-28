@@ -84,10 +84,16 @@
                 $('#sign_up_form button').click(function(evt){
                     evt.preventDefault();
                     
-                    if($('#password').val() === $('#confirm_password').val()) {
+                    if($('#password').val()=="" || $('#confirm_password').val() == "") {
+                        $('#sign_up_form p.error').text('Password Must Not Be Empty');
+                        $('#sign_up_form p.error').slideDown();
+                    }
+                    
+                    else if($('#password').val() === $('#confirm_password').val()) {
                         $('#sign_up_form').submit();
                     }
                     else {
+                        $('#sign_up_form p.error').text('Your Password Doesn\'t Match.');
                         $('#sign_up_form p.error').slideDown();
                     }
                 });
