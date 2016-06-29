@@ -5,6 +5,29 @@ header {
     position: relative;
 }
 
+header h4 {
+    margin-top: -15px !important;
+}
+
+header a#message_link {
+    position: absolute;
+    bottom: 5px;
+    right: 70px;
+}
+
+header a#message_link span.fa {
+    font-size: 1.2em;
+    color: #444;
+}
+
+header a#message_link span.badge {
+    position: relative;
+    top: -10px;
+    background-color: #ad0303;
+    border: 0;
+    font-size: .7em;
+}
+
 header a#log_out_link {
     position: absolute;
     bottom: 5px;

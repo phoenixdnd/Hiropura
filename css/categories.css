@@ -103,6 +103,15 @@ main {
     color: #00305B;
 }
 
+#page_content .button_container button span.star {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    right: 3px;
+    display: inline-block;
+    color: #ea0101;
+}
+
 #page_content h2 {
     font-family: 'Cairo', sans-serif;
     font-size: 2.5em;
@@ -159,6 +168,8 @@ main {
     opacity: 0;
     border: 0;
     color: black;
+    
+    -webkit-transition: all .5s;
     
     transition: all .5s;
 }
