@@ -112,10 +112,19 @@ main {
     color: #ea0101;
 }
 
+#page_content .button_container a#back_link {
+    position: absolute;
+    top: 15px;
+    left: 50px;
+    color: white;
+    
+}
+
 #page_content h2 {
     font-family: 'Cairo', sans-serif;
     font-size: 2.5em;
-    padding-left: 45px;
+    padding-left: 90px;
+    padding-right: 10px;
 /*    margin-top: 30px;*/
     margin-top: 0;
     min-height: 50px;
@@ -155,7 +164,7 @@ main {
     color: white;
     font-size: 1.5em;
     font-family: 'Cairo' , sans-serif;
-    z-index: 10000;
+    z-index: 1;
 }
 
 #page_content .row figure .img_container {
@@ -170,6 +179,7 @@ main {
     opacity: 0;
     border: 0;
     color: black;
+    z-index: 2;
     
     -webkit-transition: all .5s;
     
@@ -343,6 +353,7 @@ main {
     
     #page_content h2 {
         font-size: 2em;
+        text-align: right;
     }
     
     #page_content .row {

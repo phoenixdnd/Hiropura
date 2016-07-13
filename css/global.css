@@ -37,6 +37,7 @@ header nav.navbar {
   max-height: 105px;
 }
 
+
 header .navbar-brand img {
   max-height: 70px;
 }
@@ -69,6 +70,10 @@ header .navbar-nav li.login_link a {
 
 header .navbar-nav a:hover {
     text-shadow: -3px 2px 10px gray;
+    
+}
+
+header span.fa {
     
 }
 
