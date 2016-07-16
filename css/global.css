@@ -107,24 +107,20 @@ footer .row:first-of-type {
 }
 
 footer h4~a {
-    position: absolute;
-    right: 0;
-    top: 10px;
+    position: fixed;
+    right: 40px;
+    bottom: 35px;
     z-index: 1;
-    font-size: .9em;
+    font-size: 2em;
     font-weight: bold;
-    color: #00305B;
+    color: #0176de;
 }
 
 footer h4~a:hover {
     text-decoration: none;
-    color: #00305B;
+    color: #0176de;
 }
 
-footer span.fa.fa-caret-square-o-up {
-    font-size: 2em;
-    color: #00305B;
-}
 
 footer h4 {
     font-family: 'Cairo', sans-serif;
@@ -262,9 +258,6 @@ footer .copyright_info {
         top: auto;
         bottom: 10px;
         right: 15px;
-    }
-    
-    footer h4~a {
         font-size: 1.3em;
     }
     
