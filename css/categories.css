@@ -52,7 +52,8 @@ main {
     color: #333;
     -webkit-transition: all .3s;
     
-    word-break:break-all;
+/*    word-break:break-all;*/
+    
     transition: all .3s;
 /*    border-bottom: 2px solid #01274a;*/
 /*    border-top: 1px solid #045aa7;*/
